@@ -229,6 +229,11 @@ const BrowseListings = () => {
         handleFilterClick();
     };
 
+    const handleApply = () => {
+        setApplyFilters(true)
+        fetchInternships();
+    }
+
     return (
         <>
             <div className="h-full bg-[#edf2f4] p-6 flex">
@@ -297,9 +302,13 @@ const BrowseListings = () => {
                         </div>
                     </div>
                     <div>
-                        {selectedInternship ? <InternshipSingleItem
-                            internship={selectedInternship}
-                        /> : <div className="pl-40 mt-60 text-3xl"> Please select an internship to know more.</div>}
+                        {selectedInternship ? (
+                            <InternshipSingleItem internship={selectedInternship} />
+                        ) : (
+                            <div className="pl-40 text-3xl" style = {{marginTop:"38rem"}}>
+                                Please select an internship to know more.
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -492,10 +501,7 @@ const BrowseListings = () => {
                             </div>
                         </div>
                         <div>
-                            <button onClick={() => {
-                                setApplyFilters(true)
-                                fetchInternships();
-                            }} className="bg-[#6938EF] text-white text-xs font-bold py-2 px-8 rounded">
+                            <button onClick={handleApply} className="bg-[#6938EF] text-white text-xs font-bold py-2 px-8 rounded">
                                 Apply
                             </button>
                         </div>
