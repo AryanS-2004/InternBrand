@@ -21,7 +21,7 @@ const InternshipItem = ({internship}) => {
         setIsBookmarked(!isBookmarked);
         const status = !isBookmarked;
         try{
-            const updateBookmark =  await  axios.put(`https://internbrand.onrender.com/api/v1/internships/updateBookmark/${internship._id}`, {
+            const updateBookmark =  await  axios.put(`${import.meta.env.VITE_API_URL}/api/v1/internships/updateBookmark/${internship._id}`, {
                 status :`${status}`
             })
             console.log(updateBookmark);
