@@ -109,7 +109,7 @@ const BrowseListings = () => {
     };
     const fetchInternships = async () => {
         try {
-            const getIntern = await axios.get('http://localhost:3000/api/v1/internships/');
+            const getIntern = await axios.get(`https://internbrand.onrender.com/api/v1/internships/`);
             let internData = getIntern.data;
             if (applyFilters) {
                 if (selectedCategories.length !== 0) {
